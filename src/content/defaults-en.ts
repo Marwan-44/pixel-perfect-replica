@@ -82,7 +82,12 @@ export const defaultEn: TextContent = {
       {
         title: "Patient Mobile Application",
         subtitle: "For patients, at home",
-        points: ["Patient check-ins", "Symptom reporting", "Health information collection", "Treatment follow-up"],
+        points: [
+          "Patient check-ins",
+          "Symptom reporting",
+          "Health information collection",
+          "Treatment follow-up",
+        ],
       },
       {
         title: "Doctor Web Dashboard",
@@ -112,29 +117,73 @@ export const defaultEn: TextContent = {
   howItWorks: {
     eyebrow: "How It Works",
     title: "A Continuous Circle of Care",
-    intro: "From the first registration to ongoing follow-up, every step is designed to keep patients and physicians connected.",
+    intro:
+      "From the first registration to ongoing follow-up, every step is designed to keep patients and physicians connected.",
     steps: [
-      { title: "Patient Registration", text: "The patient is registered and linked to their treating physician and treatment plan." },
-      { title: "Continuous Patient Monitoring", text: "Regular check-ins keep the care team informed between hospital visits." },
-      { title: "Health Data Collection", text: "Symptoms and health information are collected in a structured, consistent way." },
-      { title: "AI-Powered Toxicity Assessment", text: "Reported data is analyzed to help assess treatment-related toxicity and its grade." },
-      { title: "Clinical Decision Support", text: "Physicians review structured insights to support informed treatment decisions." },
-      { title: "Follow-up and Monitoring", text: "Care continues with ongoing follow-up, alerts, and reassessment when needed." },
+      {
+        title: "Patient Registration",
+        text: "The patient is registered and linked to their treating physician and treatment plan.",
+      },
+      {
+        title: "Continuous Patient Monitoring",
+        text: "Regular check-ins keep the care team informed between hospital visits.",
+      },
+      {
+        title: "Health Data Collection",
+        text: "Symptoms and health information are collected in a structured, consistent way.",
+      },
+      {
+        title: "AI-Powered Toxicity Assessment",
+        text: "Reported data is analyzed to help assess treatment-related toxicity and its grade.",
+      },
+      {
+        title: "Clinical Decision Support",
+        text: "Physicians review structured insights to support informed treatment decisions.",
+      },
+      {
+        title: "Follow-up and Monitoring",
+        text: "Care continues with ongoing follow-up, alerts, and reassessment when needed.",
+      },
     ],
   },
   features: {
     eyebrow: "Key Features",
     title: "Thoughtfully Designed for Every Step",
-    intro: "Each capability is built to make treatment monitoring clearer for physicians and gentler for patients.",
+    intro:
+      "Each capability is built to make treatment monitoring clearer for physicians and gentler for patients.",
     items: [
-      { title: "Toxicity Grade Assessment", text: "Helps assess the grade of treatment-related toxicity from reported symptoms." },
-      { title: "Treatment Decision Support", text: "Supports physicians in evaluating the next dose and reassessment interval." },
-      { title: "Patient Health Monitoring", text: "A clear view of each patient's condition throughout treatment." },
-      { title: "Symptom Tracking", text: "Simple, guided symptom reporting from the patient's phone." },
-      { title: "Doctor Dashboard", text: "One organized workspace to review patients, histories, and assessments." },
-      { title: "Patient Alerts", text: "Timely notifications that highlight reports needing attention." },
-      { title: "Healthcare Data Management", text: "Structured clinical information, organized and easy to review." },
-      { title: "Continuous Patient Follow-up", text: "Ongoing connection between patients and their care team." },
+      {
+        title: "Toxicity Grade Assessment",
+        text: "Helps assess the grade of treatment-related toxicity from reported symptoms.",
+      },
+      {
+        title: "Treatment Decision Support",
+        text: "Supports physicians in evaluating the next dose and reassessment interval.",
+      },
+      {
+        title: "Patient Health Monitoring",
+        text: "A clear view of each patient's condition throughout treatment.",
+      },
+      {
+        title: "Symptom Tracking",
+        text: "Simple, guided symptom reporting from the patient's phone.",
+      },
+      {
+        title: "Doctor Dashboard",
+        text: "One organized workspace to review patients, histories, and assessments.",
+      },
+      {
+        title: "Patient Alerts",
+        text: "Timely notifications that highlight reports needing attention.",
+      },
+      {
+        title: "Healthcare Data Management",
+        text: "Structured clinical information, organized and easy to review.",
+      },
+      {
+        title: "Continuous Patient Follow-up",
+        text: "Ongoing connection between patients and their care team.",
+      },
     ],
   },
   technology: {
@@ -154,14 +203,33 @@ export const defaultEn: TextContent = {
   appShowcase: {
     eyebrow: "App Showcase",
     title: "Meet the RAQEEB Patient Application",
-    intro: "A calm, supportive experience that helps patients share how they feel — simply and consistently.",
+    intro:
+      "A calm, supportive experience that helps patients share how they feel — simply and consistently.",
     screens: [
-      { title: "Welcome", text: "A gentle introduction to RAQEEB." },
-      { title: "Daily Check-in", text: "Quick, guided patient check-ins." },
-      { title: "Symptom Reporting", text: "Report symptoms in a few clear steps." },
-      { title: "Health Information", text: "Keep health details organized." },
-      { title: "Treatment Follow-up", text: "Stay connected to the treatment plan." },
-      { title: "Notifications", text: "Helpful reminders and updates." },
+      {
+        title: "Home Screen",
+        text: "Monitor your health, check your risk level, and start your daily check-in.",
+      },
+      {
+        title: "Symptom Reporting",
+        text: "Report the symptoms you're experiencing to monitor your health.",
+      },
+      {
+        title: "Follow-up Questions",
+        text: "Answer personalized follow-up questions based on your reported symptoms.",
+      },
+      {
+        title: "Example of Risk Assessment Result",
+        text: "View your risk assessment result, risk level, and recommended actions.",
+      },
+      {
+        title: "Medications History",
+        text: "Review previous Medications records over time.",
+      },
+      {
+        title: "Dose Confirmation",
+        text: "Confirm your medication dose and track your adherence to the treatment plan.",
+      },
     ],
     placeholderText: "Screenshot coming soon",
     previewHint: "Tap any screen to view it larger",
@@ -169,7 +237,8 @@ export const defaultEn: TextContent = {
   dashboard: {
     eyebrow: "Doctor Dashboard",
     title: "Empowering Doctors with Better Insights",
-    intro: "A focused workspace that turns patient reports into structured, reviewable clinical information.",
+    intro:
+      "A focused workspace that turns patient reports into structured, reviewable clinical information.",
     screens: [
       { title: "Patients Overview", text: "Monitor all patients at a glance." },
       { title: "Patient Profile", text: "Review medical history and treatment details." },
@@ -182,12 +251,16 @@ export const defaultEn: TextContent = {
   impact: {
     eyebrow: "Intended Impact",
     title: "Making Every Step of Care More Meaningful",
-    intro: "RAQEEB is designed with the hope of creating these benefits for patients and care teams.",
+    intro:
+      "RAQEEB is designed with the hope of creating these benefits for patients and care teams.",
     items: [
       { title: "Structured follow-up", text: "More structured patient follow-up between visits." },
       { title: "Clearer visibility", text: "Better visibility into treatment-related toxicities." },
       { title: "Earlier attention", text: "Earlier identification of concerning conditions." },
-      { title: "Closer communication", text: "Improved communication between patients and doctors." },
+      {
+        title: "Closer communication",
+        text: "Improved communication between patients and doctors.",
+      },
       { title: "Informed decisions", text: "More informed clinical decisions." },
       { title: "Supportive care", text: "More supportive healthcare experiences." },
     ],
@@ -196,7 +269,8 @@ export const defaultEn: TextContent = {
   team: {
     eyebrow: "Our Team",
     title: "The Team Behind RAQEEB",
-    intro: "A dedicated team of students from October 6 University, united by a shared belief in compassionate healthcare technology.",
+    intro:
+      "A dedicated team of students from October 6 University, united by a shared belief in compassionate healthcare technology.",
     members: Array.from({ length: 8 }, (_, i) => ({
       name: `Team Member ${i + 1}`,
       role: "Role / Position",
