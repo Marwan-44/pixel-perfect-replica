@@ -11,7 +11,10 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "share": "node scripts/share.mjs",
+    "publish:watch": "node scripts/auto-publish.mjs",
+    "publish:now": "node scripts/auto-publish.mjs --once"
   },
   "overrides": {
     "rolldown": "1.2.1"

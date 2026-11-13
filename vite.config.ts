@@ -15,4 +15,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // `npm run share` sets RAQEEB_SHARE so the dev server accepts requests that arrive through a
+  // public tunnel link (otherwise Vite blocks unknown host names).
+  vite: process.env["RAQEEB_SHARE"] ? { server: { allowedHosts: true } } : {},
 });

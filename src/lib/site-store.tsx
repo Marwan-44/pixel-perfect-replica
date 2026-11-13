@@ -3,6 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { defaultContent, defaultImages } from "@/content/defaults";
 import type { Lang, SiteContent, TextContent } from "@/content/types";
 import { clearImages, deleteImage, getAllImages, putImage } from "./image-db";
+import { fillEmptyLinks } from "./links";
 import { mergeWithDefaults } from "./merge";
 
 const CONTENT_KEY = "raqeeb:content:v1";
@@ -11,7 +12,10 @@ const LANG_KEY = "raqeeb:lang";
 export function loadSavedContent(): SiteContent {
   try {
     const raw = localStorage.getItem(CONTENT_KEY);
-    return raw ? mergeWithDefaults(defaultContent, JSON.parse(raw)) : defaultContent;
+    if (!raw) return defaultContent;
+    const merged = mergeWithDefaults(defaultContent, JSON.parse(raw));
+    // A link left empty in this browser falls back to the one in uploads/links.json.
+    return { ...merged, shared: fillEmptyLinks(merged.shared, defaultContent.shared) };
   } catch {
     return defaultContent;
   }

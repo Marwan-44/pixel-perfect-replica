@@ -26,7 +26,7 @@ npm i
 npm run dev
 ```
 
-Other scripts: `npm run build`, `npm run preview`, `npm run lint`, `npm run test`.
+Other scripts: `npm run share`, `npm run build`, `npm run preview`, `npm run lint`, `npm run test`.
 
 ### Editing in GitHub Codespaces
 
@@ -34,7 +34,7 @@ The repo includes a dev container, so you can edit everything from the browser:
 
 1. On the repo page, click **Code → Codespaces → Create codespace on main**.
 2. Wait for the setup to finish. Dependencies install automatically and the dev server starts on port `8080` with a live preview.
-3. Edit any file, upload images by dragging them into `public/images/` in the file explorer, then commit and push from the Source Control tab.
+3. Edit any file, upload images by dragging them into `uploads/` in the file explorer, then commit and push from the Source Control tab.
 
 ## Project structure
 
@@ -44,30 +44,35 @@ The repo includes a dev container, so you can edit everything from the browser:
 | `src/components/editor/` | The built-in Website Editor (`/editor`) |
 | `src/content/` | Default text in English (`defaults-en.ts`) and Arabic (`defaults-ar.ts`), links, and image defaults (`defaults.ts`) |
 | `src/assets/` | Illustrations bundled with the site |
-| `public/images/` | Screenshots served as-is (see below) |
+| `uploads/` | Screenshots, team photos and `links.json`: the files you change (see below) |
+| `scripts/` | `share` (site + public link) and the automatic commit/push |
+| `public/images/` | Older location for screenshots, still supported |
 
 ## Updating the site content
 
-There are two ways to change what the site shows, and they behave differently.
+There are a few ways to change what the site shows, and they behave differently.
 
 ### 1. Website Editor (`/editor`), local to one browser
 
 Text, images, and links edited here are saved in the **browser that made the change** (localStorage and IndexedDB). Other visitors do not see them. Use it to preview changes, not to publish them.
 
-### 2. Repository files, visible to everyone
+### 2. The `uploads/` folder, visible to everyone
 
-**Screenshots.** Add the real screenshots to `public/images/` with these exact names:
+Put screenshots, team photos and links in the [`uploads/`](uploads/README.md) folder:
 
-- `public/images/app/screen-01.png` to `screen-06.png`: patient app screens (portrait)
-- `public/images/dashboard/dashboard-01.png` to `dashboard-05.png`: doctor dashboard screens (landscape)
+- `uploads/app/` (patient app screenshots), `uploads/dashboard/` (doctor dashboard screenshots), `uploads/team/` (team photos): name files `1.png`, `2.png`, and so on to choose the slot, or leave raw names and they fill the slots in alphabetical order.
+- `uploads/links.json`: project, team and supervisor links.
+- Single images such as `logo.png` and `supervisor.jpg` are matched by name.
 
-The site loads them automatically. To replace one, upload a file with the same name.
+The full naming rules are in [`uploads/README.md`](uploads/README.md).
 
-**Text.** Edit `src/content/defaults-en.ts` and `src/content/defaults-ar.ts`. Keep both languages in sync.
+Run `npm run share` to start the site, get a public link that anyone can open, and have every change in `uploads/` committed and pushed automatically. `npm run publish:now` pushes the current changes once.
 
-**Links.** Project links (demo video, LinkedIn, GitHub, email), team member links, and the supervisor link are defined in `src/content/defaults.ts` and its types in `src/content/types.ts`.
+### 3. Text
 
-**Other images** (logo, hero screens, team photos, supervisor photo) have empty defaults. To make one permanent, import the image from `src/assets/` in `src/content/defaults.ts`, or point the entry to a file under `public/images/`.
+Edit `src/content/defaults-en.ts` and `src/content/defaults-ar.ts`. Keep both languages in sync.
+
+The older way still works too: screenshots saved as `public/images/app/screen-01.png` to `screen-06.png` and `public/images/dashboard/dashboard-01.png` to `dashboard-05.png` are used when `uploads/` has no image for that slot.
 
 ## Deployment
 

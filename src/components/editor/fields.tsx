@@ -154,6 +154,7 @@ export function ImageSlotEditor({
   src,
   custom,
   defaultPath,
+  fromFolder,
   onUpload,
   onRestore,
   aspect = "aspect-video",
@@ -163,6 +164,8 @@ export function ImageSlotEditor({
   src: string;
   custom: boolean;
   defaultPath?: string;
+  /** The default image comes from the project's uploads/ folder. */
+  fromFolder?: boolean;
   onUpload: (file: File) => void;
   onRestore: () => void;
   aspect?: string;
@@ -189,7 +192,13 @@ export function ImageSlotEditor({
         <div className="min-w-0">
           <p className="truncate text-sm font-semibold text-navy">{label}</p>
           <p className="truncate text-[11px] text-muted-foreground">
-            {custom ? "Uploaded image" : defaultPath ? `Default: ${defaultPath.startsWith("/") ? defaultPath : "built-in"}` : "Built-in design"}
+            {custom
+              ? "Uploaded image"
+              : fromFolder
+                ? "From the uploads folder"
+                : defaultPath
+                  ? `Default: ${defaultPath.startsWith("/") ? defaultPath : "built-in"}`
+                  : "Built-in design"}
           </p>
           {hint ? <p className="text-[11px] text-muted-foreground">{hint}</p> : null}
         </div>

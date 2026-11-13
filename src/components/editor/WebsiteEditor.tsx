@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { HomePage } from "@/components/site/HomePage";
 import { LogoMark } from "@/components/site/Logo";
-import { defaultContent, defaultImages } from "@/content/defaults";
+import { defaultContent, defaultImages, folderImageKeys } from "@/content/defaults";
 import type { Lang, SiteContent, TextContent } from "@/content/types";
 import { normalizeUrl } from "@/lib/links";
 import { mergeWithDefaults } from "@/lib/merge";
@@ -175,6 +175,7 @@ export function WebsiteEditor() {
           src={resolveImg(s.key)}
           custom={isCustom(s.key)}
           defaultPath={defaultImages[s.key]}
+          fromFolder={folderImageKeys.has(s.key)}
           onUpload={(f) => setImage(s.key, f)}
           onRestore={() => setImage(s.key, null)}
         />
@@ -287,9 +288,10 @@ export function WebsiteEditor() {
               <Info className="mt-0.5 size-4 shrink-0" />
               <p>
                 Edits and uploaded images are stored <strong>only in this browser</strong>. They do not update the live website for other
-                visitors and this editor is not a secure admin area. To make changes permanent for everyone, add the final screenshots to the
-                project's <code className="rounded bg-card px-1">public/images</code> folder and update the default content in the project files
-                (you can use “Download content file” to hand over your text).
+                visitors and this editor is not a secure admin area. To make screenshots, team photos and links permanent for everyone, put the
+                images in the project's <code className="rounded bg-card px-1">uploads</code> folder and the links in{" "}
+                <code className="rounded bg-card px-1">uploads/links.json</code>. Running <code className="rounded bg-card px-1">npm run share</code>{" "}
+                publishes them automatically (see <code className="rounded bg-card px-1">uploads/README.md</code>).
               </p>
             </div>
             <div className="mt-5 flex flex-wrap items-end justify-between gap-4">
@@ -361,6 +363,7 @@ export function WebsiteEditor() {
                               aspect="aspect-square"
                               src={resolveImg(`team${i + 1}`)}
                               custom={isCustom(`team${i + 1}`)}
+                              fromFolder={folderImageKeys.has(`team${i + 1}`)}
                               onUpload={(f) => setImage(`team${i + 1}`, f)}
                               onRestore={() => setImage(`team${i + 1}`, null)}
                             />
@@ -389,6 +392,7 @@ export function WebsiteEditor() {
                       aspect="aspect-square"
                       src={resolveImg("supervisor")}
                       custom={isCustom("supervisor")}
+                      fromFolder={folderImageKeys.has("supervisor")}
                       onUpload={(f) => setImage("supervisor", f)}
                       onRestore={() => setImage("supervisor", null)}
                     />
