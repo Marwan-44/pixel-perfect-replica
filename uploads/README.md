@@ -4,7 +4,7 @@ Everything you can change without touching the code: screenshots, team photos, a
 
 ```
 uploads/
-├── links.json          project links, team links, supervisor link
+├── info.json          project links, team links, supervisor link
 ├── app/                patient app screenshots (6 slots)
 ├── dashboard/          doctor dashboard screenshots (5 slots)
 ├── team/               team member photos (8 slots)
@@ -32,11 +32,15 @@ Files without a number (for example raw phone screenshots) fill the slots that a
 
 **Single images.** Use the exact names from the tree above (`logo`, `supervisor`, `hero-app`, `hero-dashboard`, `about`, `impact`).
 
-## Links
+## Names, roles and links (`info.json`)
 
-Open `links.json` and fill in the values. Empty values are simply not shown. You can write `github.com/name` without `https://`.
+Open `info.json` and edit the values in place. Empty values keep the default text (or hide the link).
 
-`team` is in the same order as the team on the site: the first entry is the first member.
+- Project links: `email`, `linkedin`, `github`, `demoVideo`. You can write `github.com/name` without `https://`.
+- `team`: same order as the team on the site, the first entry is the first member. Each has `name`, `role`, `bio`, `linkedin`, `github`. The `...Ar` fields (`nameAr`, `roleAr`, `bioAr`) are the Arabic version.
+- `supervisor`: `name`, `title`, `bio`, `linkedin` (plus the `Ar` versions).
+
+Member photos: put `team/1.jpg` for member 1, `team/2.jpg` for member 2, and so on.
 
 ## Publishing
 

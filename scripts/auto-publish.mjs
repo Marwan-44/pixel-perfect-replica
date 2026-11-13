@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Commits and pushes whatever changes in the `uploads/` folder (images + links.json).
+ * Commits and pushes whatever changes in the `uploads/` folder (images + info.json).
  *
  *   npm run publish:watch   keeps running and publishes every change it sees
  *   npm run publish:now     publishes the current changes once and exits

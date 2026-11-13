@@ -72,6 +72,7 @@ export function SlotImage({
   placeholder,
   loading = "lazy",
   fit = "cover",
+  natural = false,
 }: {
   src: string;
   alt: string;
@@ -79,12 +80,14 @@ export function SlotImage({
   placeholder?: ReactNode;
   loading?: "lazy" | "eager";
   fit?: "cover" | "contain";
+  /** Show the whole image at its own proportions (no cropping). */
+  natural?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
   useEffect(() => setFailed(false), [src]);
   if (!src || failed) {
     return (
-      <div className={cn("flex h-full w-full flex-col items-center justify-center gap-2 bg-petal-gradient text-center", className)}>
+      <div className={cn("flex h-full w-full flex-col items-center justify-center gap-2 bg-petal-gradient text-center", natural && "aspect-[9/19.5]", className)}>
         {placeholder ?? <ImageIcon className="size-6 text-rose-deep/60" />}
       </div>
     );
@@ -96,7 +99,7 @@ export function SlotImage({
       loading={loading}
       decoding="async"
       onError={() => setFailed(true)}
-      className={cn("h-full w-full", fit === "cover" ? "object-cover" : "object-contain", className)}
+      className={cn(natural ? "block h-auto w-full" : "h-full w-full", fit === "cover" ? "object-cover" : "object-contain", className)}
     />
   );
 }

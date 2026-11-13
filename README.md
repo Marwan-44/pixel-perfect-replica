@@ -44,7 +44,7 @@ The repo includes a dev container, so you can edit everything from the browser:
 | `src/components/editor/` | The built-in Website Editor (`/editor`) |
 | `src/content/` | Default text in English (`defaults-en.ts`) and Arabic (`defaults-ar.ts`), links, and image defaults (`defaults.ts`) |
 | `src/assets/` | Illustrations bundled with the site |
-| `uploads/` | Screenshots, team photos and `links.json`: the files you change (see below) |
+| `uploads/` | Screenshots, team photos and `info.json`: the files you change (see below) |
 | `scripts/` | `share` (site + public link) and the automatic commit/push |
 | `public/images/` | Older location for screenshots, still supported |
 
@@ -61,7 +61,7 @@ Text, images, and links edited here are saved in the **browser that made the cha
 Put screenshots, team photos and links in the [`uploads/`](uploads/README.md) folder:
 
 - `uploads/app/` (patient app screenshots), `uploads/dashboard/` (doctor dashboard screenshots), `uploads/team/` (team photos): name files `1.png`, `2.png`, and so on to choose the slot, or leave raw names and they fill the slots in alphabetical order.
-- `uploads/links.json`: project, team and supervisor links.
+- `uploads/info.json`: project, team and supervisor links.
 - Single images such as `logo.png` and `supervisor.jpg` are matched by name.
 
 The full naming rules are in [`uploads/README.md`](uploads/README.md).

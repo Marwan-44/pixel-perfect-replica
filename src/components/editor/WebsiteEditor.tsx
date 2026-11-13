@@ -290,7 +290,7 @@ export function WebsiteEditor() {
                 Edits and uploaded images are stored <strong>only in this browser</strong>. They do not update the live website for other
                 visitors and this editor is not a secure admin area. To make screenshots, team photos and links permanent for everyone, put the
                 images in the project's <code className="rounded bg-card px-1">uploads</code> folder and the links in{" "}
-                <code className="rounded bg-card px-1">uploads/links.json</code>. Running <code className="rounded bg-card px-1">npm run share</code>{" "}
+                <code className="rounded bg-card px-1">uploads/info.json</code>. Running <code className="rounded bg-card px-1">npm run share</code>{" "}
                 publishes them automatically (see <code className="rounded bg-card px-1">uploads/README.md</code>).
               </p>
             </div>

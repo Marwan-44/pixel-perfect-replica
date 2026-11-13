@@ -14,7 +14,7 @@ export function loadSavedContent(): SiteContent {
     const raw = localStorage.getItem(CONTENT_KEY);
     if (!raw) return defaultContent;
     const merged = mergeWithDefaults(defaultContent, JSON.parse(raw));
-    // A link left empty in this browser falls back to the one in uploads/links.json.
+    // A link left empty in this browser falls back to the one in uploads/info.json.
     return { ...merged, shared: fillEmptyLinks(merged.shared, defaultContent.shared) };
   } catch {
     return defaultContent;

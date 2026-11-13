@@ -2,10 +2,23 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-export function PhoneFrame({ children, className }: { children: ReactNode; className?: string }) {
+export function PhoneFrame({
+  children,
+  className,
+  natural,
+}: {
+  children: ReactNode;
+  className?: string;
+  natural?: boolean;
+}) {
   return (
     <div className={cn("relative rounded-[2.6rem] bg-navy p-[9px] shadow-device", className)}>
-      <div className="relative aspect-[9/19.5] overflow-hidden rounded-[2.1rem] bg-ivory">
+      <div
+        className={cn(
+          "relative overflow-hidden rounded-[2.1rem] bg-ivory",
+          !natural && "aspect-[9/19.5]",
+        )}
+      >
         <div className="absolute left-1/2 top-2 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-navy" />
         {children}
       </div>
@@ -13,10 +26,26 @@ export function PhoneFrame({ children, className }: { children: ReactNode; class
   );
 }
 
-export function BrowserFrame({ children, className, label }: { children: ReactNode; className?: string; label?: string }) {
+export function BrowserFrame({
+  children,
+  className,
+  label,
+}: {
+  children: ReactNode;
+  className?: string;
+  label?: string;
+}) {
   return (
-    <div className={cn("overflow-hidden rounded-2xl border border-border bg-card shadow-device", className)}>
-      <div className="flex items-center gap-2 border-b border-border bg-muted px-4 py-2.5" dir="ltr">
+    <div
+      className={cn(
+        "overflow-hidden rounded-2xl border border-border bg-card shadow-device",
+        className,
+      )}
+    >
+      <div
+        className="flex items-center gap-2 border-b border-border bg-muted px-4 py-2.5"
+        dir="ltr"
+      >
         <span className="size-2.5 rounded-full bg-rose" />
         <span className="size-2.5 rounded-full bg-lavender-deep/50" />
         <span className="size-2.5 rounded-full bg-powder" />
@@ -45,7 +74,10 @@ export function AbstractAppUI() {
         </div>
         <div className="mt-3 flex gap-1.5">
           {[1, 2, 3, 4, 5].map((i) => (
-            <div key={i} className={cn("h-6 flex-1 rounded-lg", i === 2 ? "bg-rose" : "bg-petal")} />
+            <div
+              key={i}
+              className={cn("h-6 flex-1 rounded-lg", i === 2 ? "bg-rose" : "bg-petal")}
+            />
           ))}
         </div>
       </div>
@@ -72,7 +104,10 @@ export function AbstractDashboardUI() {
       <div className="hidden w-1/5 flex-col gap-2 border-e border-border bg-card p-3 sm:flex">
         <div className="mb-2 h-3 w-12 rounded-full bg-navy/70" />
         {[1, 2, 3, 4, 5].map((i) => (
-          <div key={i} className={cn("h-2.5 rounded-full", i === 1 ? "w-full bg-rose" : "w-3/4 bg-slate/20")} />
+          <div
+            key={i}
+            className={cn("h-2.5 rounded-full", i === 1 ? "w-full bg-rose" : "w-3/4 bg-slate/20")}
+          />
         ))}
       </div>
       <div className="flex flex-1 flex-col gap-3 p-4">
@@ -87,7 +122,14 @@ export function AbstractDashboardUI() {
         <div className="flex flex-1 gap-3">
           <div className="flex flex-[2] items-end gap-1.5 rounded-xl border border-border bg-card p-3">
             {[40, 65, 50, 80, 55, 70, 45, 85, 60].map((h, i) => (
-              <div key={i} className={cn("flex-1 rounded-t-md", i % 3 === 0 ? "bg-rose" : "bg-lavender-deep/40")} style={{ height: `${h}%` }} />
+              <div
+                key={i}
+                className={cn(
+                  "flex-1 rounded-t-md",
+                  i % 3 === 0 ? "bg-rose" : "bg-lavender-deep/40",
+                )}
+                style={{ height: `${h}%` }}
+              />
             ))}
           </div>
           <div className="flex flex-1 flex-col gap-2 rounded-xl border border-border bg-card p-3">

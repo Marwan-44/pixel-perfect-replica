@@ -32,15 +32,15 @@ export function AppShowcase() {
         <p className="mt-4 text-center text-sm text-muted-foreground">{a.previewHint}</p>
         <div className="mt-14 grid grid-cols-2 gap-x-5 gap-y-12 md:grid-cols-3 lg:gap-x-10">
           {a.screens.map((s, i) => (
-            <Reveal key={i} delay={(i % 3) * 90} className={cn("flex flex-col items-center", i % 3 === 1 && "md:translate-y-10")}>
+            <Reveal key={i} delay={(i % 3) * 90} className={cn("flex flex-col items-center justify-start", i % 3 === 1 && "md:translate-y-10")}>
               <button
                 type="button"
                 onClick={() => setOpen(i)}
                 className="group relative w-full max-w-[250px] cursor-zoom-in transition-transform duration-500 hover:-translate-y-2"
                 aria-label={s.title}
               >
-                <PhoneFrame>
-                  <SlotImage src={img(`app${i + 1}`)} alt={s.title} placeholder={<ComingSoon text={a.placeholderText} />} />
+                <PhoneFrame natural>
+                  <SlotImage natural src={img(`app${i + 1}`)} alt={s.title} placeholder={<ComingSoon text={a.placeholderText} />} />
                 </PhoneFrame>
                 <span className="absolute end-3 top-12 flex size-9 items-center justify-center rounded-full bg-card/90 text-navy opacity-0 shadow-soft transition-opacity group-hover:opacity-100">
                   <ZoomIn className="size-4" />
@@ -58,8 +58,8 @@ export function AppShowcase() {
             <>
               <DialogTitle className="sr-only">{a.screens[open].title}</DialogTitle>
               <DialogDescription className="sr-only">{a.screens[open].text}</DialogDescription>
-              <PhoneFrame className="mx-auto w-full max-w-[340px]">
-                <SlotImage src={img(`app${open + 1}`)} alt={a.screens[open].title} placeholder={<ComingSoon text={a.placeholderText} />} />
+              <PhoneFrame natural className="mx-auto w-full max-w-[340px]">
+                <SlotImage natural src={img(`app${open + 1}`)} alt={a.screens[open].title} placeholder={<ComingSoon text={a.placeholderText} />} />
               </PhoneFrame>
               <p className="text-center font-display text-xl text-ivory">{a.screens[open].title}</p>
             </>

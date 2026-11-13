@@ -1,8 +1,8 @@
 import aboutIllustration from "@/assets/women-solidarity.jpg";
 import impactIllustration from "@/assets/hands-bloom.jpg";
-import { parseLinksFile } from "@/lib/links";
+import { applyPeopleText, parseLinksFile } from "@/lib/links";
 import { assignUploadSlots } from "@/lib/upload-slots";
-import linksFile from "../../uploads/links.json";
+import infoFile from "../../uploads/info.json";
 import { defaultAr } from "./defaults-ar";
 import { defaultEn } from "./defaults-en";
 import type { SiteContent } from "./types";
@@ -12,10 +12,10 @@ export const TEAM_SIZE = 8;
 export const APP_SCREEN_COUNT = 6;
 export const DASHBOARD_SCREEN_COUNT = 5;
 
-/** Links come from `uploads/links.json`, so they can be changed without touching the code. */
+/** Links come from `uploads/info.json`, so they can be changed without touching the code. */
 export const defaultContent: SiteContent = {
-  text: { en: defaultEn, ar: defaultAr },
-  shared: parseLinksFile(linksFile, TEAM_SIZE),
+  text: applyPeopleText({ en: defaultEn, ar: defaultAr }, infoFile),
+  shared: parseLinksFile(infoFile, TEAM_SIZE),
 };
 
 const pad = (n: number) => String(n).padStart(2, "0");
