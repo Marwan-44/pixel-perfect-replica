@@ -28,6 +28,14 @@ npm run dev
 
 Other scripts: `npm run build`, `npm run preview`, `npm run lint`, `npm run test`.
 
+### Editing in GitHub Codespaces
+
+The repo includes a dev container, so you can edit everything from the browser:
+
+1. On the repo page, click **Code → Codespaces → Create codespace on main**.
+2. Wait for the setup to finish. Dependencies install automatically and the dev server starts on port `8080` with a live preview.
+3. Edit any file, upload images by dragging them into `public/images/` in the file explorer, then commit and push from the Source Control tab.
+
 ## Project structure
 
 | Path | What it holds |
