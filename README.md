@@ -76,4 +76,6 @@ The older way still works too: screenshots saved as `public/images/app/screen-01
 
 ## Deployment
 
-Publishing is handled through Lovable. Any commit on `main` syncs to the Lovable project, so avoid force pushes or rewriting already-pushed history.
+**GitHub Pages.** Every push to `main` runs `.github/workflows/pages.yml`, which builds a static copy of the site and publishes it at `https://<user>.github.io/<repo>/`. One-time setup: in the repository go to Settings, Pages, and set Source to **GitHub Actions**. The first run takes a couple of minutes; later runs happen by themselves, including the automatic pushes from `npm run share`.
+
+**Lovable.** Publishing there is separate. Commits on `main` still sync to the Lovable project, so avoid force pushes or rewriting already-pushed history.

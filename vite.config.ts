@@ -9,13 +9,22 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// `npm run build:pages` (used by the GitHub Pages workflow) builds a static single-page copy of
+// the site. GitHub Pages serves the project under /<repo-name>/, so BASE_PATH sets that prefix.
+const pages = Boolean(process.env["GITHUB_PAGES"]);
+const base = process.env["BASE_PATH"] ?? "/";
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    ...(pages ? { spa: { enabled: true } } : {}),
   },
   // `npm run share` sets RAQEEB_SHARE so the dev server accepts requests that arrive through a
   // public tunnel link (otherwise Vite blocks unknown host names).
-  vite: process.env["RAQEEB_SHARE"] ? { server: { allowedHosts: true } } : {},
+  vite: {
+    ...(pages ? { base } : {}),
+    ...(process.env["RAQEEB_SHARE"] ? { server: { allowedHosts: true } } : {}),
+  },
 });

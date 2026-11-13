@@ -8,6 +8,8 @@ export const getRouter = () => {
 
   const router = createRouter({
     routeTree,
+    // Under GitHub Pages the site lives in a sub-folder (for example /pixel-perfect-replica/).
+    basepath: import.meta.env.BASE_URL.replace(/\/$/, "") || "/",
     context: { queryClient },
     scrollRestoration: true,
     // Lets Query own freshness; set caching defaults on the QueryClient, not the router.
